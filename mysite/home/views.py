@@ -1,0 +1,13 @@
+from operator import index
+from re import TEMPLATE
+from django.shortcuts import render
+from django.http import HttpResponse
+import datetime
+
+TEMPLATE_DIRS = (
+    'os.path.join(BASE_DIR, "TEMPLATES"),'
+)
+
+def index(request):
+    today = datetime.datetime.now().date()
+    return render(request, "index.html", {"today": today})
